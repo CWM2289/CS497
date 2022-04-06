@@ -51,7 +51,7 @@ module.exports = (env) => {
       ],
     },
     resolve: {
-      extensions: ['.js', '.jsx', '.json'],
+      extensions: ['.js', '.jsx', '.json', '.scss'],
     },
     plugins: [
       new Dotenv(),
