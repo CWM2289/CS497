@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link, useHistory, useLocation, useParams } from 'react-router-dom';
 import { useTranslation, Trans } from 'react-i18next';
-import '../../styles/components/Pages/HomePage.scss';
+import '../../styles/components/Pages/HomePage';
 
 export const HomePage = (props) => {
 
