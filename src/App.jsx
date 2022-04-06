@@ -9,12 +9,12 @@ import './styles/styles.scss';
 
 initializeI18n();
 
-        /** Prepare redux store */
-        const store = configureStore(1);
+/** Prepare redux store */
+const store = configureStore(1);
 
-        ReactDOM.render(
-          <Provider store={store}>
-            <AppRouter />
-          </Provider>,
-          document.getElementById('app'),
-        );
+ReactDOM.render(
+  <Provider store={store}>
+    <AppRouter />
+  </Provider>,
+  document.getElementById('app'),
+);

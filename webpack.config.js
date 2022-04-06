@@ -58,7 +58,8 @@ module.exports = () => {
     devServer: {
       contentBase: path.join(__dirname, 'public'),
       historyApiFallback: true,
-      publicPath: '/dist/'
+      publicPath: '/dist/',
+      port: process.env.PORT || 8080,
     },
   };
 };
