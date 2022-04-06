@@ -1,9 +1,7 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const Dotenv = require('dotenv-webpack');
 
-module.exports = (env) => {
-  const isProduction = env === 'production';
+module.exports = () => {
   const CSSExtract = new MiniCssExtractPlugin({
     filename: 'styles.css',
   });
@@ -54,10 +52,9 @@ module.exports = (env) => {
       extensions: ['.js', '.jsx', '.json', '.scss'],
     },
     plugins: [
-      new Dotenv(),
       CSSExtract
     ],
-    devtool: isProduction ? 'source-map' : 'inline-source-map',
+    devtool: 'inline-source-map',
     devServer: {
       contentBase: path.join(__dirname, 'public'),
       historyApiFallback: true,
