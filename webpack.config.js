@@ -59,7 +59,6 @@ module.exports = () => {
       contentBase: path.join(__dirname, 'public'),
       historyApiFallback: true,
       publicPath: '/dist/',
-      port: process.env.PORT || 8080,
     },
   };
 };
