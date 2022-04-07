@@ -2,5 +2,19 @@
 
 .header {
     background-color: $berry-blue;
-    height: 10rem;
+    height: 12rem;
+    margin-left: 200px;
+    font-size: 5rem;
+    text-align: center;
+    position: relative;
+
+    &__title {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        font-weight: bold;
+    }
 }

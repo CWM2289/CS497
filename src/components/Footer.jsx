@@ -7,7 +7,6 @@ const Footer = () => {
     return (
         <>
         <div className="footer__top" />
-        <img className="footer__logo" src={logo} />
         <div className="footer__bottom">
             <p>Copyright @ Christopher Mcgale & Pedram Mollahajian</p>
         </div>

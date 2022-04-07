@@ -1,9 +1,10 @@
 .home-page {
-    margin-top: 100px;
+    margin-top: 50px;
 }
 .game-text {
-    margin: 0 50px;
+    margin: 50px 50px 0 50px;
     overflow-wrap: break-word;
+    white-space: pre-line;
 }
 
 Link {
@@ -13,4 +14,11 @@ Link {
 .start-game {
     color: blue !important;
     text-decoration: underline;
+}
+
+
+.game-photo {
+  display: block;
+  margin: 0 auto auto auto;
+  width: 40%;
 }
