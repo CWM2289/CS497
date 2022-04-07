@@ -4,20 +4,18 @@ import { connect } from 'react-redux';
 import { Link, useHistory, useLocation, useParams } from 'react-router-dom';
 import { useTranslation, Trans } from 'react-i18next';
 import '../../styles/components/pages/HomePage.scss';
-const images = require.context('../../../public/images', true);
 
 export const HomePage = (props) => {
 
   const { textCode } = useParams();
   const { t } = useTranslation('common');
-  const photo = () => {try{return images(`./CS497-${textCode}.png`)} catch(e) {}}
     return (
         <div className="home-page">
           {textCode && 
           <div className="photo-container">
             <img 
               className="game-photo" 
-              src={photo()} 
+              src={`../../assets/public/images/CS497-${textCode}.png`} 
               alt={t(`photo-${textCode}`)}
             />
           </div>}

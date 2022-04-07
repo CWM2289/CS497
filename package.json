@@ -3,20 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "engines": {
-    "node": "10.x"
-  },
   "scripts": {
-    "build": "webpack",
-    "build-master": "webpack",
-    "build-dev": "webpack",
-    "build-sandbox": "webpack",
-    "start": "webpack serve --config=webpack.config.js --mode=development",
-    "lint": "./node_modules/.bin/eslint src/ --fix",
-    "docCoverage": "./node_modules/.bin/esdoc && grep -q 100% ./docs/coverage.json",
-    "doc-watch": "./node_modules/.bin/esdoc && open ./docs/source.html",
+    "serve": "live-server public/",
+    "build:dev": "webpack",
+    "build:prod": "webpack -p --env production",
+    "dev-server": "webpack-dev-server",
     "test": "jest --config=jest.config.json",
-    "test-watch": "jest --config=jest.config.json --watchAll"
+    "start": "node server/server.js",
+    "heroku-postbuild": "yarn run build:prod"
   },
   "dependencies": {
     "@babel/cli": "^7.14.5",
@@ -45,6 +39,7 @@
     "mini-css-extract-plugin": "^1.6.0",
     "moment": "^2.29.1",
     "normalize.css": "7.0.0",
+    "path": "^0.12.7",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-addons-shallow-compare": "^15.6.3",
@@ -59,6 +54,7 @@
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-router-navigation-prompt": "^1.8.14",
+    "react-scripts": "^5.0.0",
     "react-select-search": "^3.0.8",
     "react-tooltip": "^4.2.21",
     "redux": "3.7.2",
@@ -94,5 +90,17 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 }
