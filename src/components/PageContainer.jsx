@@ -27,7 +27,7 @@ import Sidebar from './Sidebar';
     {
       label: 'About Us',
       className: 'item',
-      url: '/about',
+      url: '/aboutUs',
     },
     {
       label: 'Further Readings',
