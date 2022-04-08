@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import propTypes from 'prop-types';
 import gobackIcon from '../assets/icons/goback.png';
@@ -15,6 +15,8 @@ import '../styles/components/Sidebar.scss';
 const Sidebar = ({ items, goBack, mainMenu }) => {
   const { t } = useTranslation('common');
   const history = useHistory();
+  const location = useLocation();
+  const textCodeTest = new RegExp("^/[0-9]+");
 
   const keyDown = (e, onClick) => {
     if (e.keyCode === 13) {
@@ -69,7 +71,16 @@ const Sidebar = ({ items, goBack, mainMenu }) => {
         {/* {<div className="side-bar__logo-container">
           <Logo type="CoopBannerWhite" />
         </div>} */}
-        <div className="side-bar__top-container">
+        {textCodeTest.test(location.pathname) &&
+          <div className="side-bar__text">
+            <h2>Tech Dating Simulator</h2>
+            <p>A choose your own story game about the abuse of power and the dangers women face on the internet</p>
+          </div>
+        }
+        <div 
+          style={!textCodeTest.test(location.pathname) ? {"marginTop": "12rem"} : {}} 
+          className="side-bar__top-container"
+        >
           <Link
             className={`side-bar__${items[0].className}`}
             to={items[0].url}

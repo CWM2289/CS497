@@ -16,6 +16,7 @@ import Sidebar from './Sidebar';
   const location = useLocation();
   const [goBack, setGoBack] = useState(false);
   const [mainMenu, setMainMenu] = useState(false);
+  const textCode = new RegExp("^/[0-9]+");
 
   const labels = [
     {
@@ -23,6 +24,16 @@ import Sidebar from './Sidebar';
       className: 'main',
       url: '/',
     },
+    {
+      label: 'About Us',
+      className: 'item',
+      url: '/about',
+    },
+    {
+      label: 'Further Readings',
+      className: 'item',
+      url: '/readings',
+    }
   ]
 
     const renderSidebar = () => {
@@ -42,15 +53,16 @@ import Sidebar from './Sidebar';
           updateSidebar(loc);
         });
       }
-    
+
       return (
         <div className="page-container">
-          <div className="Header">
-            <Header 
-                navItems={navItems} 
-                onMenuClick={() => renderSidebar()}
-            />
-          </div>
+          {!textCode.test(location.pathname) &&
+            <div className="Header">
+              <Header 
+                  navItems={navItems} 
+                  onMenuClick={() => renderSidebar()}
+              />
+            </div>}
           <Sidebar items={labels} goBack={goBack} mainMenu={mainMenu} />
           <div className="page-content">{children}</div>
           <div className="footer">
