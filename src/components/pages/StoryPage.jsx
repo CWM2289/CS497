@@ -10,6 +10,7 @@ export const StoryPage = () => {
   const { textCode } = useParams();
   const { t } = useTranslation('common');
   const history = useHistory();
+  const [selected, setSelected] = useState(0);
   const getPhoto = () => {try{return require(`../../assets/images/CS497-${textCode}.png`)} catch(err) {console.log(err)}}
 
     return (
