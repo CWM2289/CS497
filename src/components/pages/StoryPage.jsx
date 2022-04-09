@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link, useHistory, useLocation, useParams } from 'react-router-dom';
@@ -9,8 +9,9 @@ export const StoryPage = () => {
 
   const { textCode } = useParams();
   const { t } = useTranslation('common');
+  const history = useHistory();
   const getPhoto = () => {try{return require(`../../assets/images/CS497-${textCode}.png`)} catch(err) {console.log(err)}}
-  
+
     return (
         <div className="story-page">
           {textCode && 
@@ -24,13 +25,43 @@ export const StoryPage = () => {
           <div className="game-text">
             <Trans 
               t={t} 
-              i18nKey={textCode ? textCode : 'start'}
+              i18nKey={textCode}
               components={[
-              <Link className="start-game" to={'/1'} />, 
-              <Link className="start-game" to={'/2'} />,
-              <Link className="start-game" to={'/3'} />,
+              <button className="game-button" onClick={() => {
+                history.push(`/${parseInt(textCode.toString()[0]) + 1}${textCode.toString().slice(1) !== '-1' ? textCode.toString().slice(1) : ''}`)
+                setSelected(0);
+              }} />,
+              <button className="game-button" onClick={() => {
+                history.push(`/${textCode}-1`)
+                setSelected(0);
+              }} />,
+              <button className="game-button" onClick={() => setSelected('a')} />,
+              <button className="game-button" onClick={() => setSelected('b')} />,
+              <button className="game-button" onClick={() => {
+                history.push(`/${parseInt(textCode.toString()[0]) + 1}${textCode.toString()[1]}1`)
+                setSelected(0);
+                }} 
+              />,
+              <button className="game-button" onClick={() => {
+                history.push(`/${parseInt(textCode.toString()[0]) + 1}${textCode.toString()[1]}2`)
+                setSelected(0);
+                }}  />,
+              <button className="game-button" onClick={() => {
+                history.push(`/${parseInt(textCode.toString()[0]) + 1}${textCode.toString()[1]}3`)
+                setSelected(0);
+                }}  />,
             ]} 
             />
+            {selected !== 0 && <Trans 
+              t={t} 
+              i18nKey={`${parseInt(textCode.toString()[0])}${textCode.toString().slice(1) !== '-1' ? textCode.toString().slice(1) : ''}-selected-${selected}`}
+              components={[
+              <button className="game-button" onClick={() => {
+                history.push(`/${parseInt(textCode.toString()[0]) + 1}${textCode.toString().slice(1) !== '-1' ? textCode.toString().slice(1) : ''}${selected}`)
+                setSelected(0);
+              }} />, 
+            ]} 
+            />}
           </div> 
         </div>
     ) 
