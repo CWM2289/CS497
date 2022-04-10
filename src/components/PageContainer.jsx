@@ -25,11 +25,6 @@ import Sidebar from './Sidebar';
       url: '/',
     },
     {
-      label: 'About Us',
-      className: 'item',
-      url: '/aboutUs',
-    },
-    {
       label: 'Further Readings',
       className: 'item',
       url: '/readings',
